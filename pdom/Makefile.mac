@@ -1,0 +1,20 @@
+CC=/usr/bin/g++
+INCLUDE=-I. -I/usr/include/libxml2 -I/usr/local/include
+LDFLAGS=-lxml2 -L/usr/local/lib
+
+OBJECTS=DomTree.o DomElement.o DomAttribute.o DomDataHandler.o
+
+all: clean pdom test
+
+%.o: %.cpp
+	$(CC) -c -o $@ $< $(INCLUDE)
+
+clean:
+	rm -rf *.o *.so *.dylib
+	
+pdom: $(OBJECTS)
+	$(CC) -dynamiclib -o libpdom.dylib $^ $(LDFLAGS)
+
+test: $(OBJECTS)
+	$(CC) -o test test.cpp $(LDFLAGS) $(INCLUDE) -L. -lpdom
+

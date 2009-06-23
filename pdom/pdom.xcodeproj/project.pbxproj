@@ -1,0 +1,253 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C20523B10FF052B200CCF42F /* DomTree.h in Headers */ = {isa = PBXBuildFile; fileRef = C20523AF0FF052B200CCF42F /* DomTree.h */; };
+		C20523B20FF052B200CCF42F /* DomTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C20523B00FF052B200CCF42F /* DomTree.cpp */; };
+		C23A21FC0FF043F100816CD8 /* DomAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = C23A21FA0FF043F100816CD8 /* DomAttribute.h */; };
+		C23A21FD0FF043F100816CD8 /* DomAttribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C23A21FB0FF043F100816CD8 /* DomAttribute.cpp */; };
+		C23A22000FF0449C00816CD8 /* DomElement.h in Headers */ = {isa = PBXBuildFile; fileRef = C23A21FE0FF0449C00816CD8 /* DomElement.h */; };
+		C23A22010FF0449C00816CD8 /* DomElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C23A21FF0FF0449C00816CD8 /* DomElement.cpp */; };
+		C23A22040FF044EA00816CD8 /* DomDataHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = C23A22020FF044EA00816CD8 /* DomDataHandler.h */; };
+		C23A22050FF044EA00816CD8 /* DomDataHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C23A22030FF044EA00816CD8 /* DomDataHandler.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		32BAE0B70371A74B00C91783 /* pdom_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pdom_Prefix.pch; sourceTree = "<group>"; };
+		5073E0C609E734A800EC74B6 /* pdomProj.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = pdomProj.xcconfig; sourceTree = "<group>"; };
+		5073E0C709E734A800EC74B6 /* pdomTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = pdomTarget.xcconfig; sourceTree = "<group>"; };
+		C20523AF0FF052B200CCF42F /* DomTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomTree.h; sourceTree = "<group>"; };
+		C20523B00FF052B200CCF42F /* DomTree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DomTree.cpp; sourceTree = "<group>"; };
+		C23A21FA0FF043F100816CD8 /* DomAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomAttribute.h; sourceTree = "<group>"; };
+		C23A21FB0FF043F100816CD8 /* DomAttribute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DomAttribute.cpp; sourceTree = "<group>"; };
+		C23A21FE0FF0449C00816CD8 /* DomElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomElement.h; sourceTree = "<group>"; };
+		C23A21FF0FF0449C00816CD8 /* DomElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DomElement.cpp; sourceTree = "<group>"; };
+		C23A22020FF044EA00816CD8 /* DomDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DomDataHandler.h; sourceTree = "<group>"; };
+		C23A22030FF044EA00816CD8 /* DomDataHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DomDataHandler.cpp; sourceTree = "<group>"; };
+		D2AAC09D05546B4700DB518D /* libpdom.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libpdom.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC09B05546B4700DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DDFF38A45A11DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC09D05546B4700DB518D /* libpdom.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* pdom */ = {
+			isa = PBXGroup;
+			children = (
+				5073E0CA09E734BC00EC74B6 /* Configuration Files */,
+				08FB77ACFE841707C02AAC07 /* Source */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DDFF38A45A11DB9C8B /* Products */,
+			);
+			name = pdom;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		08FB77ACFE841707C02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				32BAE0B70371A74B00C91783 /* pdom_Prefix.pch */,
+				C23A21FA0FF043F100816CD8 /* DomAttribute.h */,
+				C23A21FB0FF043F100816CD8 /* DomAttribute.cpp */,
+				C23A21FE0FF0449C00816CD8 /* DomElement.h */,
+				C23A21FF0FF0449C00816CD8 /* DomElement.cpp */,
+				C23A22020FF044EA00816CD8 /* DomDataHandler.h */,
+				C23A22030FF044EA00816CD8 /* DomDataHandler.cpp */,
+				C20523AF0FF052B200CCF42F /* DomTree.h */,
+				C20523B00FF052B200CCF42F /* DomTree.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		5073E0CA09E734BC00EC74B6 /* Configuration Files */ = {
+			isa = PBXGroup;
+			children = (
+				5073E0C609E734A800EC74B6 /* pdomProj.xcconfig */,
+				5073E0C709E734A800EC74B6 /* pdomTarget.xcconfig */,
+			);
+			name = "Configuration Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC09905546B4700DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C23A21FC0FF043F100816CD8 /* DomAttribute.h in Headers */,
+				C23A22000FF0449C00816CD8 /* DomElement.h in Headers */,
+				C23A22040FF044EA00816CD8 /* DomDataHandler.h in Headers */,
+				C20523B10FF052B200CCF42F /* DomTree.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC09C05546B4700DB518D /* pdom */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB916008733D950010E9CD /* Build configuration list for PBXNativeTarget "pdom" */;
+			buildPhases = (
+				D2AAC09905546B4700DB518D /* Headers */,
+				D2AAC09B05546B4700DB518D /* Frameworks */,
+				D2AAC09A05546B4700DB518D /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = pdom;
+			productName = libpdom;
+			productReference = D2AAC09D05546B4700DB518D /* libpdom.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "pdom" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 0867D691FE84028FC02AAC07 /* pdom */;
+			productRefGroup = 034768DDFF38A45A11DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC09C05546B4700DB518D /* pdom */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC09A05546B4700DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C23A21FD0FF043F100816CD8 /* DomAttribute.cpp in Sources */,
+				C23A22010FF0449C00816CD8 /* DomElement.cpp in Sources */,
+				C23A22050FF044EA00816CD8 /* DomDataHandler.cpp in Sources */,
+				C20523B20FF052B200CCF42F /* DomTree.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB916108733D950010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5073E0C709E734A800EC74B6 /* pdomTarget.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = pdom_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"_GLIBCXX_DEBUG=1",
+					"_GLIBCXX_DEBUG_PEDANTIC=1",
+				);
+			};
+			name = Debug;
+		};
+		1DEB916208733D950010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5073E0C709E734A800EC74B6 /* pdomTarget.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = pdom_Prefix.pch;
+				STRIP_INSTALLED_PRODUCT = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Release;
+		};
+		1DEB916508733D950010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5073E0C609E734A800EC74B6 /* pdomProj.xcconfig */;
+			buildSettings = {
+				ADDITIONAL_SDKS = "";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
+				LD_RUNPATH_SEARCH_PATHS = .;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lxml2";
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		1DEB916608733D950010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5073E0C609E734A800EC74B6 /* pdomProj.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB916008733D950010E9CD /* Build configuration list for PBXNativeTarget "pdom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB916108733D950010E9CD /* Debug */,
+				1DEB916208733D950010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB916408733D950010E9CD /* Build configuration list for PBXProject "pdom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB916508733D950010E9CD /* Debug */,
+				1DEB916608733D950010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}

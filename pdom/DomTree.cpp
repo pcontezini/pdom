@@ -15,6 +15,11 @@ DomTree::DomTree(std::string name, std::string encoding, std::string version) {
 	this->version = version;
 }
 
+DomTree::~DomTree() {
+	removeElements(elements);
+	removeAttributes(attributes);
+}
+
 std::vector<DomElement *>& DomTree::getChildren() {
 	return(elements);
 }

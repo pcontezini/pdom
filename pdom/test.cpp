@@ -24,8 +24,9 @@ int main(int argc, char *argv[]) {
 
 	DomElement *element = newTree->newElement("blah");
 	element->setAttribute("superteste","ativar");
+	DomElement *childElement = element->newElement("childblah");
 
-	element->setValue("blahblah");
+	childElement->setValue("blahblah");
 	newTree->dumpTree();
 	newTree->write("teste.xml",true);
 }

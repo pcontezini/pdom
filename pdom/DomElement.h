@@ -23,10 +23,13 @@ private:
 	std::string name;
 	std::string value;
 	
+	std::string namespaceURI;
+	
 public:
 	DomElement(std::string name);
 	void setName(std::string value);
 	std::string getName();
+	std::string getLocalName();
 	
 	void setValue(std::string value);
 	std::string getValue();	
@@ -42,8 +45,11 @@ public:
 	bool setAttribute(std::string name, std::string value);
 	// accepts a new attribute, then you can do newAttribute(new DomAttribute(name,NonStringData));
 	bool setAttribute(DomAttribute *newAttribute);
-	
+	std::string getAttribute(std::string name);
 	bool removeAttribute(std::string name);
+	
+	std::string getAttributeNS(std::string name, std::string NS);
+	void setAttributeNS(std::string name, std::string NS, std::string value);
 	
 	DomElement *newElement(std::string name);
 	
@@ -53,6 +59,10 @@ public:
 	DomElement *removeChild(DomElement *oldChild);
 	DomElement *appendChild(DomElement *newChild);
 	bool hasChildNodes();
+	bool hasAttributes();
+	
+	std::string getNamespaceURI();
+	void setNamespaceURI(std::string namespaceURI);
 	
 	
 };

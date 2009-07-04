@@ -15,7 +15,15 @@ void DomAttribute::setName(std::string name){
 }
 
 std::string DomAttribute::getName() {
-	return(this->name);
+	if(namespaceURI.size()) { // se temos namespace, o elemento precisa ter o prefixo
+		return(this->namespaceURI + ":" + this->name);
+	}
+	
+	return(this->name);	
+}
+
+std::string DomAttribute::getLocalName() {
+	return(this->name);	
 }
 
 void DomAttribute::setValue(std::string value) {
@@ -26,7 +34,16 @@ std::string DomAttribute::getValue() {
 	return(this->value);
 }
 
-DomAttribute::DomAttribute(std::string name, std::string value) {
+std::string DomAttribute::getNamespaceURI() {
+	return(namespaceURI);
+}
+
+void DomAttribute::setNamespaceURI(std::string namespaceURI) {
+	this->namespaceURI = namespaceURI;
+}
+
+DomAttribute::DomAttribute(std::string name, std::string value, std::string namespaceURI) {
 	setName(name);
 	setValue(value);
+	setNamespaceURI(namespaceURI);
 }

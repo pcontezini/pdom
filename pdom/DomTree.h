@@ -36,6 +36,8 @@ public:
 	DomElement *createElement(std::string name);
 	DomElement *newElement(std::string name);
 	
+	bool hasChildNodes();
+	
 	std::vector<DomAttribute *>& getAttributes();
 	void setAttributes(std::vector<DomAttribute *>value);
 	void removeAttributes(std::vector<DomAttribute *> &oldAttributes);

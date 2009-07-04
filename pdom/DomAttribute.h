@@ -16,16 +16,22 @@
 
 class DomAttribute : public DomDataHandler {
 public:
-	DomAttribute(std::string name, std::string value);
+	DomAttribute(std::string name, std::string value, std::string namespaceURI = "");
 	void setName(std::string value);
 	std::string getName();
 
 	void setValue(std::string value);
 	std::string getValue();
 	
+	void setNamespaceURI(std::string namespaceURI);
+	std::string getNamespaceURI();
+	
+	std::string getLocalName();
+	
 private:
 	std::string name;
 	std::string value;
+	std::string namespaceURI;	
 };
 	
 #pragma GCC visibility pop

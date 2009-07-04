@@ -18,6 +18,13 @@ void DomElement::setName(std::string name){
 }
 
 std::string DomElement::getName() {
+	if(namespaceURI.size()) { // se temos namespace, o elemento precisa ter o prefixo
+		return(this->namespaceURI + ":" + this->name);
+	}
+	return(this->name);
+}
+
+std::string DomElement::getLocalName() {
 	return(this->name);
 }
 
@@ -72,3 +79,40 @@ DomElement *DomElement::newElement(std::string name) {
 	return(new_element);
 	
 }
+
+std::string DomElement::getAttribute(std::string name) {
+	for(unsigned int i = 0; i < attributes.size() ; i++ ) {
+		if( attributes[i]->getName() == name ) {
+			return(attributes[i]->getValue()); // atributo foi reescrito
+		}
+	}
+	return(""); // attributo nao existe = string vazia
+}
+
+std::string DomElement::getNamespaceURI() {
+	return(namespaceURI);
+}
+
+void DomElement::setNamespaceURI(std::string namespaceURI) {
+	this->namespaceURI = namespaceURI;
+}
+
+std::string DomElement::getAttributeNS(std::string name, std::string NS) {
+	for(unsigned int i = 0; i < attributes.size() ; i++ ) {
+		if( attributes[i]->getName() == name && attributes[i]->getNamespaceURI() == NS) {
+			return(attributes[i]->getValue()); // atributo foi reescrito
+		}
+	}
+	return(""); // attributo nao existe = string vazia
+}
+
+void DomElement::setAttributeNS(std::string name, std::string NS, std::string value) {
+	for(unsigned int i = 0; i < attributes.size() ; i++ ) {
+		if( attributes[i]->getName() == name && attributes[i]->getNamespaceURI() == NS) {
+			attributes[i]->setValue(value); // atributo foi reescrito
+		}
+	}
+	DomAttribute *newAttribute = new DomAttribute(name,NS,value);
+	attributes.push_back(newAttribute);
+}
+	

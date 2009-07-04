@@ -19,11 +19,12 @@ using namespace std;
 int main(int argc, char *argv[]) {
 	DomTree *newTree = new DomTree("testeidasdasda","UTF-8","1.0");
 
-	printf("merda: %s\n", newTree->getName().c_str());
-	printf("merda: %s\n", newTree->getName().c_str());
+	printf("tree: %s\n", newTree->getName().c_str());
 
 	DomElement *element = newTree->newElement("blah");
-	element->setAttribute("superteste","ativar");
+	element->setNamespaceURI("prefixo");
+	element->setAttributeNS("superteste","ativar","atributoprefixo");
+	element->setAttribute("outroteste","blah");
 	DomElement *childElement = element->newElement("childblah");
 
 	childElement->setValue("blahblah");

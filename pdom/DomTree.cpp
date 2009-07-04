@@ -444,3 +444,10 @@ void DomTree::clearChildren() {
 		elements.erase(elements.begin());
 	}
 }
+
+bool DomTree::hasChildNodes() {
+	if(elements.size()) {
+		return(true);
+	}
+	return(false);
+}

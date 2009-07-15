@@ -1,6 +1,6 @@
 CC=/usr/bin/g++
 INCLUDE=-I. -I/usr/include/libxml2 -I/usr/local/include
-LDFLAGS=-lxml2 -L/usr/local/lib
+LDFLAGS=-lxml2 -L/usr/local/lib -ggdb
 
 OBJECTS=DomTree.o DomElement.o DomAttribute.o DomDataHandler.o
 

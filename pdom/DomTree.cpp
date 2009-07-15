@@ -321,9 +321,11 @@ bool DomTree::load(std::string file) {
 		return(false);
 	}
 	
-	version = (char *)doc->version;
-	encoding = (char *)doc->encoding;
-	
+	if(doc->version) {
+		version = (char *)doc->version;
+	}
+	if(doc->encoding)
+		encoding = (char *)doc->encoding;
 	
 	cur = xmlDocGetRootElement(doc);
 	
@@ -342,8 +344,7 @@ bool DomTree::load(std::string file) {
 		setAttribute(name,value);
 		attr = attr->next;
 	}
-	
-	
+
 	cur = cur->children;
 	
 	parseChildren(doc,cur,NULL);

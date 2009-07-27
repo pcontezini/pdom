@@ -18,13 +18,15 @@
 #pragma GCC visibility push(default)
 
 class DomTree {
-private:
+protected:
 	std::vector<DomAttribute *> attributes;
 	std::vector<DomElement *> elements;
+	
 	std::string name;
 	std::string encoding;
 	std::string version;
 public:
+	
 	DomTree(std::string name, std::string encoding = "UTF-8" , std::string version = "1.0" );
 	~DomTree();
 	
@@ -34,15 +36,18 @@ public:
 	void setElements(std::vector<DomElement *> value);
 	void removeElements(std::vector<DomElement *> &oldElements);
 	DomElement *createElement(std::string name);
-	DomElement *newElement(std::string name);
+	virtual DomElement *newElement(std::string name);
+	void pushElement(DomElement *newElement);
 	
 	bool hasChildNodes();
+	int getChildrenCount();
+	DomElement *getChild(int index);
 	
 	std::vector<DomAttribute *>& getAttributes();
 	void setAttributes(std::vector<DomAttribute *>value);
 	void removeAttributes(std::vector<DomAttribute *> &oldAttributes);
-//	DomAttribute *setAttribute(std::string name);
-	DomAttribute *setAttribute(std::string name, std::string value);
+
+	virtual DomAttribute *setAttribute(std::string name, std::string value);
 	DomAttribute *setAttribute(DomAttribute *attribute);
 	
 	std::string getName();

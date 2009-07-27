@@ -452,3 +452,18 @@ bool DomTree::hasChildNodes() {
 	}
 	return(false);
 }
+
+void DomTree::pushElement(DomElement *newElement) {
+	elements.push_back(newElement);
+}
+
+int DomTree::getChildrenCount() {
+	return(elements.size());
+}
+
+DomElement *DomTree::getChild(int index) {
+	if(index > elements.size()-1) {
+		return(NULL);
+	}
+	return(elements[index]);
+}

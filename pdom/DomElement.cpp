@@ -10,7 +10,9 @@
 #include "DomElement.h"
 
 DomElement::DomElement(std::string name) {
+//	printf("criando element\n");
 	setName(name);
+	namespaceURI = "";
 }
 
 void DomElement::setName(std::string name){ 
@@ -67,6 +69,21 @@ bool DomElement::setAttribute(std::string name, std::string value) {
 	return(true); // atributo foi adicionado	
 }
 
+bool DomElement::setAttributeValue(std::string name, std::string value) {
+	for(unsigned int i = 0; i < attributes.size() ; i++ ) {
+		if( attributes[i]->getName() == name ) {
+			attributes[i]->setValue(value);
+			return(true); // atributo foi reescrito
+		}
+	}
+	return(false);
+}
+	
+
+void DomElement::setAttribute(DomAttribute *newAttribute) {
+	attributes.push_back(newAttribute);
+}
+
 DomElement *DomElement::newElement(std::string name) {
 	DomElement *new_element;
 	if(name.empty()) {
@@ -116,3 +133,16 @@ void DomElement::setAttributeNS(std::string name, std::string NS, std::string va
 	attributes.push_back(newAttribute);
 }
 	
+bool DomElement::removeAttribute(std::string name) {
+	for(unsigned int i = 0; i < attributes.size() ; i++ ) {
+		if( attributes[i]->getName() == name ) {
+			attributes.erase(attributes.begin() + i);
+			return(true);
+		}
+	}
+	return(false); // attributo nao existe = string vazia
+}
+
+void DomElement::pushElement(DomElement *newElement) {
+	elements.push_back(newElement);
+}

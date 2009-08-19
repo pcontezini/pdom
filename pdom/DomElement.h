@@ -22,17 +22,16 @@ protected:
 	std::vector<DomElement *> elements;
 	std::string name;
 	std::string value;
-	
 	std::string namespaceURI;
-	
+
 public:
-	DomElement(std::string name);
-	void setName(std::string value);
-	std::string getName();
-	std::string getLocalName();
+	DomElement(const std::string& name);
+	void setName(const std::string& value);
+	std::string getName() const;
+	const std::string& getLocalName() const;
 	
-	void setValue(std::string value);
-	std::string getValue();	
+	void setValue(const std::string& value);
+	const std::string& getValue() const;	
 	
 	std::vector<DomAttribute *>& getAttributes();
 	std::vector<DomElement *>& getElements();
@@ -42,17 +41,17 @@ public:
 	void setElements(std::vector<DomElement *>value);
 	
 	// can create string arguments by parameter
-	virtual bool setAttribute(std::string name, std::string value);
+	virtual bool setAttribute(const std::string& name, const std::string& value);
 	// accepts a new attribute, then you can do newAttribute(new DomAttribute(name,NonStringData));
 	void setAttribute(DomAttribute *newAttribute);
-	bool setAttributeValue(std::string name, std::string value);
-	std::string getAttribute(std::string name);
-	bool removeAttribute(std::string name);
+	bool setAttributeValue(const std::string& name, const std::string& value);
+	std::string getAttribute(const std::string& name) const;
+	bool removeAttribute(const std::string& name);
 	
-	std::string getAttributeNS(std::string name, std::string NS);
-	void setAttributeNS(std::string name, std::string NS, std::string value);
+	std::string getAttributeNS(const std::string& name, const std::string& NS) const;
+	void setAttributeNS(const std::string& name, const std::string& NS, const std::string& value);
 	
-	virtual DomElement *newElement(std::string name);
+	virtual DomElement *newElement(const std::string& name);
 	void pushElement(DomElement *newElement);
 	
 	// DOM compatibility functions
@@ -60,13 +59,11 @@ public:
 	DomElement *replaceChild(DomElement *newChild, DomElement *oldChild);
 	DomElement *removeChild(DomElement *oldChild);
 	DomElement *appendChild(DomElement *newChild);
-	bool hasChildNodes();
-	bool hasAttributes();
+	bool hasChildNodes() const;
+	bool hasAttributes() const;
 	
-	std::string getNamespaceURI();
-	void setNamespaceURI(std::string namespaceURI);
-	
-	
+	const std::string& getNamespaceURI() const;
+	void setNamespaceURI(const std::string& namespaceURI);
 };
 
 #pragma GCC visibility pop

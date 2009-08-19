@@ -10,11 +10,11 @@
 #include "DomAttribute.h"
 
 
-void DomAttribute::setName(std::string name){ 
+void DomAttribute::setName(const std::string& name) { 
 	this->name = name;
 }
 
-std::string DomAttribute::getName() {
+std::string DomAttribute::getName() const {
 	if(namespaceURI.size()) { // se temos namespace, o elemento precisa ter o prefixo
 		return(this->namespaceURI + ":" + this->name);
 	}
@@ -22,27 +22,27 @@ std::string DomAttribute::getName() {
 	return(this->name);	
 }
 
-std::string DomAttribute::getLocalName() {
+const std::string& DomAttribute::getLocalName() const {
 	return(this->name);	
 }
 
-void DomAttribute::setValue(std::string value) {
+void DomAttribute::setValue(const std::string& value) {
 	this->value = value;
 }
 
-std::string DomAttribute::getValue() {
+const std::string& DomAttribute::getValue() const {
 	return(this->value);
 }
 
-std::string DomAttribute::getNamespaceURI() {
+const std::string& DomAttribute::getNamespaceURI() const {
 	return(namespaceURI);
 }
 
-void DomAttribute::setNamespaceURI(std::string namespaceURI) {
+void DomAttribute::setNamespaceURI(const std::string& namespaceURI) {
 	this->namespaceURI = namespaceURI;
 }
 
-DomAttribute::DomAttribute(std::string name, std::string value, std::string namespaceURI) {
+DomAttribute::DomAttribute(const std::string& name, const std::string& value, const std::string& namespaceURI) {
 	setName(name);
 	setValue(value);
 	setNamespaceURI(namespaceURI);

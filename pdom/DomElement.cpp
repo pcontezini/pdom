@@ -9,32 +9,32 @@
 
 #include "DomElement.h"
 
-DomElement::DomElement(std::string name) {
+DomElement::DomElement(const std::string& name) {
 //	printf("criando element\n");
 	setName(name);
 	namespaceURI = "";
 }
 
-void DomElement::setName(std::string name){ 
+void DomElement::setName(const std::string& name){ 
 	this->name = name;
 }
 
-std::string DomElement::getName() {
+std::string DomElement::getName() const {
 	if(namespaceURI.size()) { // se temos namespace, o elemento precisa ter o prefixo
 		return(this->namespaceURI + ":" + this->name);
 	}
 	return(this->name);
 }
 
-std::string DomElement::getLocalName() {
+const std::string& DomElement::getLocalName() const {
 	return(this->name);
 }
 
-void DomElement::setValue(std::string value) {
+void DomElement::setValue(const std::string& value) {
 	this->value = value;
 }
 
-std::string DomElement::getValue() {
+const std::string& DomElement::getValue() const {
 	return(this->value);
 }
 
@@ -57,7 +57,7 @@ void DomElement::setElements(std::vector<DomElement *> value) {
 	this->elements = value; 
 }
 
-bool DomElement::setAttribute(std::string name, std::string value) {
+bool DomElement::setAttribute(const std::string& name, const std::string& value) {
 	for(unsigned int i = 0; i < attributes.size() ; i++ ) {
 		if( attributes[i]->getName() == name ) {
 			attributes[i]->setValue(value);
@@ -69,7 +69,7 @@ bool DomElement::setAttribute(std::string name, std::string value) {
 	return(true); // atributo foi adicionado	
 }
 
-bool DomElement::setAttributeValue(std::string name, std::string value) {
+bool DomElement::setAttributeValue(const std::string& name, const std::string& value) {
 	for(unsigned int i = 0; i < attributes.size() ; i++ ) {
 		if( attributes[i]->getName() == name ) {
 			attributes[i]->setValue(value);
@@ -84,7 +84,7 @@ void DomElement::setAttribute(DomAttribute *newAttribute) {
 	attributes.push_back(newAttribute);
 }
 
-DomElement *DomElement::newElement(std::string name) {
+DomElement *DomElement::newElement(const std::string& name) {
 	DomElement *new_element;
 	if(name.empty()) {
 		return(new_element);
@@ -97,7 +97,7 @@ DomElement *DomElement::newElement(std::string name) {
 	
 }
 
-std::string DomElement::getAttribute(std::string name) {
+std::string DomElement::getAttribute(const std::string& name) const {
 	for(unsigned int i = 0; i < attributes.size() ; i++ ) {
 		if( attributes[i]->getName() == name ) {
 			return(attributes[i]->getValue()); // atributo foi reescrito
@@ -106,15 +106,15 @@ std::string DomElement::getAttribute(std::string name) {
 	return(""); // attributo nao existe = string vazia
 }
 
-std::string DomElement::getNamespaceURI() {
+const std::string& DomElement::getNamespaceURI() const {
 	return(namespaceURI);
 }
 
-void DomElement::setNamespaceURI(std::string namespaceURI) {
+void DomElement::setNamespaceURI(const std::string& namespaceURI) {
 	this->namespaceURI = namespaceURI;
 }
 
-std::string DomElement::getAttributeNS(std::string name, std::string NS) {
+std::string DomElement::getAttributeNS(const std::string& name, const std::string& NS) const {
 	for(unsigned int i = 0; i < attributes.size() ; i++ ) {
 		if( attributes[i]->getName() == name && attributes[i]->getNamespaceURI() == NS) {
 			return(attributes[i]->getValue()); // atributo foi reescrito
@@ -123,7 +123,7 @@ std::string DomElement::getAttributeNS(std::string name, std::string NS) {
 	return(""); // attributo nao existe = string vazia
 }
 
-void DomElement::setAttributeNS(std::string name, std::string NS, std::string value) {
+void DomElement::setAttributeNS(const std::string& name, const std::string& NS, const std::string& value) {
 	for(unsigned int i = 0; i < attributes.size() ; i++ ) {
 		if( attributes[i]->getName() == name && attributes[i]->getNamespaceURI() == NS) {
 			attributes[i]->setValue(value); // atributo foi reescrito
@@ -133,7 +133,7 @@ void DomElement::setAttributeNS(std::string name, std::string NS, std::string va
 	attributes.push_back(newAttribute);
 }
 	
-bool DomElement::removeAttribute(std::string name) {
+bool DomElement::removeAttribute(const std::string& name) {
 	for(unsigned int i = 0; i < attributes.size() ; i++ ) {
 		if( attributes[i]->getName() == name ) {
 			attributes.erase(attributes.begin() + i);

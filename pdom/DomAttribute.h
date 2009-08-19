@@ -16,17 +16,17 @@
 
 class DomAttribute : public DomDataHandler {
 public:
-	DomAttribute(std::string name, std::string value, std::string namespaceURI = "");
-	void setName(std::string value);
-	std::string getName();
+	DomAttribute(const std::string& name, const std::string& value, const std::string& namespaceURI = "");
+	void setName(const std::string& value);
+	std::string getName() const;
 
-	void setValue(std::string value);
-	std::string getValue();
+	void setValue(const std::string& value);
+	const std::string& getValue() const;
 	
-	void setNamespaceURI(std::string namespaceURI);
-	std::string getNamespaceURI();
+	void setNamespaceURI(const std::string& namespaceURI);
+	const std::string& getNamespaceURI() const;
 	
-	std::string getLocalName();
+	const std::string& getLocalName() const;
 	
 private:
 	std::string name;

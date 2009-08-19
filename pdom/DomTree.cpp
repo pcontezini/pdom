@@ -9,7 +9,7 @@
 
 #include "DomTree.h"
 
-DomTree::DomTree(std::string name, std::string encoding, std::string version) {
+DomTree::DomTree(const std::string& name, const std::string& encoding, const std::string& version) {
 	this->name = name;
 	this->encoding = encoding;
 	this->version = version;
@@ -48,11 +48,11 @@ void DomTree::removeElements(std::vector<DomElement *> &children) {
 	}
 }
 
-DomElement *DomTree::createElement(std::string name) {
+DomElement *DomTree::createElement(const std::string& name) {
 	return(newElement(name));
 }
 
-DomElement *DomTree::newElement(std::string name) {
+DomElement *DomTree::newElement(const std::string& name) {
 	DomElement *new_element = new DomElement(name);
 	elements.push_back(new_element);
 	return(new_element);
@@ -73,7 +73,7 @@ void DomTree::removeAttributes(std::vector<DomAttribute *> &oldAttributes) {
 	}
 }
 
-DomAttribute *DomTree::setAttribute(std::string name, std::string value) {
+DomAttribute *DomTree::setAttribute(const std::string& name, const std::string& value) {
 	DomAttribute *new_attribute;
 	if(name.empty()) {
 		return(new_attribute);
@@ -90,31 +90,31 @@ DomAttribute *DomTree::setAttribute(DomAttribute *attribute) {
 	return(attribute);
 }
 
-std::string DomTree::getName() {
+const std::string& DomTree::getName() const {
 	return(this->name);
 }
 
-void DomTree::setName(std::string name) {
+void DomTree::setName(const std::string& name) {
 	this->name = name;
 }
 
-std::string DomTree::getEncoding() {
+const std::string& DomTree::getEncoding() const {
 	return(this->encoding);
 }
 
-void DomTree::setEncoding(std::string encoding) {
+void DomTree::setEncoding(const std::string& encoding) {
 	this->encoding = encoding;
 }
 
-std::string DomTree::getVersion() {
+const std::string& DomTree::getVersion() const {
 	return(this->version);
 }
 
-void DomTree::setVersion(std::string version) {
+void DomTree::setVersion(const std::string& version) {
 	this->version = version;
 }
 
-void DomTree::dumpTree() {
+void DomTree::dumpTree() const {
 	std::cout << "root: " << name << " encoding: " << encoding << " version: " << version << std::endl;
 	std::cout << "---------------------------------------------------" << std::endl;
 	for(unsigned int i = 0; i < elements.size() ; i++) {
@@ -134,7 +134,7 @@ void DomTree::dumpTree() {
 	}
 }
 
-void DomTree::dumpChildren(DomElement *c,int entrylevel) {
+void DomTree::dumpChildren(DomElement *c,int entrylevel) const {
 	entrylevel++;
 	std::cout << "==================================" << std::endl;
 	std::cout << entrylevel << "name: " << c->getName() << " value: " << c->getValue() << std::endl;
@@ -151,7 +151,7 @@ void DomTree::dumpChildren(DomElement *c,int entrylevel) {
 	std::cout << "==================================" << std::endl;
 }
 
-void DomTree::dumpXmlChild(xmlNodePtr parent,DomElement *c) {
+void DomTree::dumpXmlChild(xmlNodePtr parent,DomElement *c) const {
 	xmlNodePtr child;
 	child = xmlNewChild(parent,NULL,(const xmlChar *)c->getName().c_str(),(xmlChar *)c->getValue().c_str());
 	if(c->getAttributes().size() > 0) {
@@ -166,7 +166,7 @@ void DomTree::dumpXmlChild(xmlNodePtr parent,DomElement *c) {
 	}
 }
 
-void DomTree::dumpXml() {
+void DomTree::dumpXml() const {
 	xmlDocPtr doc;
 	xmlNodePtr cur;
 	
@@ -199,7 +199,7 @@ void DomTree::dumpXml() {
 	
 }
 
-char *DomTree::dumpXmlStr() {
+char *DomTree::dumpXmlStr() const {
 	xmlDocPtr doc;
 	xmlNodePtr cur;
 	
@@ -234,7 +234,7 @@ char *DomTree::xml(bool indent) {
 	xmlNodePtr cur;
 	
 	doc = xmlNewDoc((xmlChar *)version.c_str());
-	
+
 	doc->children = xmlNewDocNode(doc, NULL,(const xmlChar *)name.c_str(), NULL);
 	
 	for(unsigned int i = 0; i < attributes.size() ; i++) {
@@ -270,7 +270,7 @@ char *DomTree::xml(bool indent) {
 	return((char *)output);
 }
 
-bool DomTree::write(std::string file, bool indent) {
+bool DomTree::write(const std::string& file, bool indent) {
 	xmlDocPtr doc;
 	xmlNodePtr cur;
 	//xmlAttrPtr attr;
@@ -310,7 +310,7 @@ bool DomTree::write(std::string file, bool indent) {
 	return(true);
 }	
 
-bool DomTree::load(std::string file) {
+bool DomTree::load(const std::string& file) {
 	xmlDocPtr doc;
 	xmlNodePtr cur;
 	xmlAttrPtr attr;
@@ -425,7 +425,7 @@ void DomTree::parseChildren(xmlDocPtr doc, xmlNodePtr child, DomElement *parent)
 	}
 }
 
-bool DomTree::elementExist(std::string name) {
+bool DomTree::elementExist(const std::string& name) const {
 	for(unsigned int i = 0; i < elements.size() ; i++) {
 		if(elements[i]->getName() == name ) {
 			return(true);
@@ -446,18 +446,15 @@ void DomTree::clearChildren() {
 	}
 }
 
-bool DomTree::hasChildNodes() {
-	if(elements.size()) {
-		return(true);
-	}
-	return(false);
+bool DomTree::hasChildNodes() const {
+	return (elements.size() > 0);
 }
 
 void DomTree::pushElement(DomElement *newElement) {
 	elements.push_back(newElement);
 }
 
-int DomTree::getChildrenCount() {
+int DomTree::getChildrenCount() const {
 	return(elements.size());
 }
 

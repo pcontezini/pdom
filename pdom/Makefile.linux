@@ -12,8 +12,7 @@ clean:
 	rm -rf *.o *.so *.dylib
 	
 pdom: $(OBJECTS)
-	$(CXX) -dynamiclib -o libpdom.dylib $^ $(LDFLAGS)
+	$(CXX) -shared -Wl,-soname,pdom.so -o pdom.so $^ $(LDFLAGS)
 
 test: $(OBJECTS)
 	$(CXX) -o test test.cpp $(LDFLAGS) $(INCLUDE) -L. -lpdom
-

@@ -1,12 +1,13 @@
 INCLUDE=-I. -I/usr/include/libxml2 -I/usr/local/include
-LDFLAGS=-lxml2 -L/usr/local/lib -ggdb
+LDFLAGS=-lxml2 -L/usr/local/lib -ggdb -m32
+CFLAGS=-ggdb -m32
 
 OBJECTS=DomTree.o DomElement.o DomAttribute.o DomDataHandler.o
 
 all: clean pdom test
 
 %.o: %.cpp
-	$(CXX) -c -o $@ $< $(INCLUDE)
+	$(CXX) -c -o $@ $< $(INCLUDE) $(CFLAGS)
 
 clean:
 	rm -rf *.o *.so *.dylib

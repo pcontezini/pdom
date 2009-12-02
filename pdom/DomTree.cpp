@@ -367,8 +367,10 @@ bool DomTree::load(char *buffer, int len) {
 		return(false);
 	}
 	
-	version = (char *)doc->version;
-	encoding = (char *)doc->encoding;
+	if(doc->version)
+		version = (char *)doc->version;
+	if(doc->encoding)
+		encoding = (char *)doc->encoding;
 	
 	
 	cur = xmlDocGetRootElement(doc);

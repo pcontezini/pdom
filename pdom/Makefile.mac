@@ -1,6 +1,6 @@
 INCLUDE=-I. -I/usr/include/libxml2 -I/usr/local/include
-LDFLAGS=-lxml2 -L/usr/local/lib -ggdb -m32
-CFLAGS=-ggdb -m32
+LDFLAGS=-lxml2 -L/usr/local/lib -ggdb -m64 -m32
+CFLAGS=-ggdb -m64 -m32
 
 OBJECTS=DomTree.o DomElement.o DomAttribute.o DomDataHandler.o
 

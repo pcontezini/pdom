@@ -66,7 +66,7 @@ public:
 	bool write(const std::string& file, bool indent = true);
 	bool load(const std::string& file);
 	bool load(char *buffer, int len);
-	void parseChildren(xmlDocPtr doc, xmlNodePtr child, DomElement *parent);
+	virtual void parseChildren(xmlDocPtr doc, xmlNodePtr child, DomElement *parent);
 	bool elementExist(const std::string& name) const;
 	
 	void clearChildren();

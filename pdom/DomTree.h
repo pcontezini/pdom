@@ -28,7 +28,7 @@ protected:
 public:
 	
 	DomTree(const std::string& name, const std::string& encoding = "UTF-8", const std::string& version = "1.0");
-	~DomTree();
+	virtual ~DomTree();
 	
 	std::vector<DomElement *>& getChildren();
 	std::vector<DomElement *>& getElements();

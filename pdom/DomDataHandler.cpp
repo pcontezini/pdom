@@ -9,6 +9,10 @@
 
 #include "DomDataHandler.h"
 
+DomDataHandler::~DomDataHandler() {
+
+}
+
 void DomDataHandler::setValue(int value) {
 	char tmp[64];
 	snprintf(tmp,63,"%d",value);

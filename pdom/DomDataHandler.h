@@ -18,6 +18,7 @@ class DomDataHandler {
 public:
 	virtual const std::string& getValue() const = 0;
 	virtual void setValue(const std::string& data) = 0;
+	virtual ~DomDataHandler();
 	
 	void setValue(int value);
 	void setValue(float value);

@@ -74,7 +74,7 @@ void DomTree::removeAttributes(std::vector<DomAttribute *> &oldAttributes) {
 }
 
 DomAttribute *DomTree::setAttribute(const std::string& name, const std::string& value) {
-	DomAttribute *new_attribute;
+	DomAttribute *new_attribute = NULL;
 	if(name.empty()) {
 		return(new_attribute);
 	}
@@ -453,7 +453,14 @@ bool DomTree::hasChildNodes() const {
 }
 
 void DomTree::pushElement(DomElement *newElement) {
+//	std::cout << __func__ << " aquiii " << newElement->getName() << std::endl;
 	elements.push_back(newElement);
+//	std::cout << __func__ << " 2222 aquiii " << std::endl;
+
+}
+
+void DomTree::pushAttribute(DomAttribute *newAttribute) {
+	attributes.push_back(newAttribute);
 }
 
 int DomTree::getChildrenCount() const {

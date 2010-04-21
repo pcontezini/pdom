@@ -1,6 +1,6 @@
 INCLUDE=-I. -I/usr/include/libxml2 -I/usr/local/include
-LDFLAGS=-lxml2 -L/usr/local/lib -ggdb -m64 -m32
-CFLAGS=-ggdb -m64 -m32
+LDFLAGS=-lxml2 -L/usr/local/lib -ggdb
+CFLAGS=-ggdb -m32
 
 OBJECTS=DomTree.o DomElement.o DomAttribute.o DomDataHandler.o
 
@@ -13,8 +13,8 @@ clean:
 	rm -rf *.o *.so *.dylib
 	
 pdom: $(OBJECTS)
-	$(CXX) -dynamiclib -o libpdom.dylib $^ $(LDFLAGS)
+	$(CXX) -dynamiclib -arch i386 -o libpdom.dylib $^ $(LDFLAGS)
 
 test: $(OBJECTS)
-	$(CXX) -o test test.cpp $(LDFLAGS) $(INCLUDE) -L. -lpdom
+	$(CXX) -m32 -o test test.cpp $(LDFLAGS) $(INCLUDE) -L. -lpdom
 

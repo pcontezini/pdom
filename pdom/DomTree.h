@@ -49,6 +49,7 @@ public:
 
 	virtual DomAttribute *setAttribute(const std::string& name, const std::string& value);
 	DomAttribute *setAttribute(DomAttribute *attribute);
+	void pushAttribute(DomAttribute *newAttribute);
 	
 	const std::string& getName() const;
 	void setName(const std::string& name);

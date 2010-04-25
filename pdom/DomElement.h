@@ -64,6 +64,9 @@ public:
 	
 	const std::string& getNamespaceURI() const;
 	void setNamespaceURI(const std::string& namespaceURI);
+
+	char *dump();
+	void dumpXmlChild(xmlNodePtr parent, DomElement *child) const;
 };
 
 #pragma GCC visibility pop

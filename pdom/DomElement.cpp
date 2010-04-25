@@ -146,3 +146,51 @@ bool DomElement::removeAttribute(const std::string& name) {
 void DomElement::pushElement(DomElement *newElement) {
 	elements.push_back(newElement);
 }
+
+char *DomElement::dump() {
+	xmlDocPtr doc;
+	xmlNodePtr cur;
+
+	doc = xmlNewDoc((const xmlChar *)"1.0");
+	doc->children = xmlNewDocNode(doc, NULL,(const xmlChar *)name.c_str(), NULL);
+
+	for(unsigned int i = 0; i < elements.size() ; i++) {
+		cur = xmlNewChild(doc->children,NULL,(const xmlChar *)elements[i]->getName().c_str(),(xmlChar *)elements[i]->getValue().c_str());
+		if(elements[i]->getAttributes().size() > 0) {
+			for(unsigned int a = 0; a < elements[i]->getAttributes().size() ; a++) {
+				xmlSetProp(cur,(const xmlChar *)elements[i]->getAttributes()[a]->getName().c_str(),(const xmlChar *)elements[i]->getAttributes()[a]->getValue().c_str());
+			}
+		}
+		if ( elements[i]->getChildren().size() > 0 ) {
+			for(unsigned int b = 0; b < elements[i]->getChildren().size() ; b++) {
+				dumpXmlChild(cur,elements[i]->getChildren()[b]);
+			}
+		}
+	}
+
+	xmlChar *output;
+	int len;
+
+	xmlDocDumpFormatMemory(doc, &output, &len,1);
+
+//	std::cout << output << std::endl;
+
+	xmlFreeDoc(doc);
+//	xmlFree(output);
+	return((char *)output);
+}
+
+void DomElement::dumpXmlChild(xmlNodePtr parent,DomElement *c) const {
+	xmlNodePtr child;
+	child = xmlNewChild(parent,NULL,(const xmlChar *)c->getName().c_str(),(xmlChar *)c->getValue().c_str());
+	if(c->getAttributes().size() > 0) {
+		for(unsigned int a = 0; a < c->getAttributes().size() ; a++) {
+			xmlSetProp(child,(const xmlChar *)c->getAttributes()[a]->getName().c_str(),(const xmlChar *)c->getAttributes()[a]->getValue().c_str());
+		}
+	}
+	if(c->getChildren().size() > 0) {
+		for(unsigned int i = 0; i < c->getChildren().size() ; i++) {
+			dumpXmlChild(child,c->getChildren()[i]);
+		}
+	}
+}
